@@ -1,11 +1,39 @@
+// Game Setup
 eden = new Eden;
-
 kaboom();
+setGravity(1600);
+loadSprite("blobb", eden.links[0]);
 
-loadSprite("bean", eden.links[1]);
-
-
+// Level Setup
 add([
-    sprite("bean"),
-    pos(80, 40),
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4),
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
 ])
+
+const blobb = add([
+    sprite("blobb"),
+    pos(80, 40),
+    area(),
+    body()
+])
+
+blobb.onCollide("enemy", () => {
+    addKaboom(blobb.pos);
+    shake();
+});
+
+
+// Movement
+onKeyPress("space", () => {
+    if (blobb.isGrounded()) {
+        blobb.jump();
+    }
+});
+
+/*onKeyPress("w", () => {
+    blobb.
+});*/
