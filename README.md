@@ -1,2 +1,2 @@
 # blobb
-A game by Eden Brophy and Phineas Steen
+A game created by Eden Brophy and Phineas Steen
